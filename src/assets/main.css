@@ -1,0 +1,42 @@
+/* @import "./base.css"; */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#nav-link{
+    text-decoration: none;
+    margin-right: 10px;
+    color: grey;
+}
+
+.breadcrumb{
+    background-color: transparent;
+    text-decoration: none;
+    color: grey;
+}
+
+.card{
+    /* box-shadow: 2px 1px 5px #ccc; */
+}
+
+.card-title{
+    font-size:small;
+}
+
+#tabelLaporan{
+    font-size: small;
+}
+
+#tombol-hapus :hover{
+    cursor: pointer;
+}
+
+table {
+    /* border:1px solid black; */
+    border-collapse: collapse;
+}
+
+table img{
+    margin-left: 3px;
+}
