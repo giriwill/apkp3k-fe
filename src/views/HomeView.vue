@@ -12,8 +12,9 @@
               <p>
                 <b>A</b>plikasi <br /><b>P</b>elaporan <br /><b>K</b>inerja
                 <br /><b>P</b>egawai <b>P</b>emerintah dalam <b>P</b>erjanjian
-                <b>K</b>erja
+                <b>K</b>erja dan Non ASN
               </p>
+              <marquee behavior="slow" direction="">Sudah Bisa Digunakan Oleh Tenaga Kependidikan</marquee>
             </div>
           </div>
         </div>
