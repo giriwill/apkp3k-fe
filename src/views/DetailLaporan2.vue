@@ -69,13 +69,29 @@
                     </select>
                   </div>
                   <!--  -->
-                  <div class="form-group">
-                    <label for="nama">Lama Kegiatan (Dalam Menit)</label>
-                    <input
-                      v-model="durasi"
-                      type="number"
-                      class="form-control"
-                    />
+                  <div class="row">
+                    <div class="col-auto">
+                      <div class="form-group">
+                        <label for="nama">Dari Jam</label>
+                        <input
+                          v-model="dariJam"
+                          type="text"
+                          class="form-control"
+                          placeholder="contoh : 07.00"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="form-group">
+                        <label for="nama">Sampai Jam</label>
+                        <input
+                          v-model="sampaiJam"
+                          type="text"
+                          class="form-control"
+                          placeholder="contoh : 07.00"
+                        />
+                      </div>
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="nama">Deskripsi Kegiatan</label>
@@ -147,7 +163,7 @@
             <router-link
               target="blank"
               class="btn btn-info btn-sm float-right mr-1"
-              :to="'/cetak/' + this.guruku.nip"
+              :to="'/cetak2/' + this.guruku.nip"
               ><b-icon-printer></b-icon-printer> CETAK
             </router-link>
           </strong>
@@ -164,7 +180,8 @@
                   <th>No.</th>
                   <th>Hari</th>
                   <th>Tanggal</th>
-                  <th>Jumlah Menit</th>
+                  <th>Dari Jam</th>
+                  <th>Sampai Jam</th>
                   <th>Uraian Kegiatan</th>
                   <th width="400">Foto</th>
                   <th width="20">Aksi</th>
@@ -179,7 +196,8 @@
                       laporans.tahun
                     }}
                   </td>
-                  <td>{{ laporans.durasi }} Menit</td>
+                  <td>{{ laporans.dari }} WIB</td>
+                  <td>{{ laporans.sampai }} WIB</td>
                   <td>{{ laporans.kegiatan }}</td>
                   <td>
                     <span v-if="laporans.foto1.split('/')[5]">
@@ -285,7 +303,8 @@ export default {
       laporan: [],
       tanggal: "",
       hari: "",
-      durasi: "",
+      dariJam: "",
+      sampaiJam: "",
       kegiatan: "",
       foto1: "",
       foto2: "",
@@ -299,7 +318,8 @@ export default {
       if (
         this.tanggal &&
         this.hari &&
-        this.durasi &&
+        this.dariJam &&
+        this.sampaiJam &&
         this.kegiatan &&
         this.foto1
       ) {
@@ -310,7 +330,8 @@ export default {
             bulan: this.tanggal.split("-")[1],
             tahun: this.tanggal.split("-")[0],
             hari: this.hari,
-            durasi: this.durasi,
+            dari: this.dariJam,
+            sampai: this.sampaiJam,
             kegiatan: this.kegiatan,
             foto1: this.foto1,
             foto2: this.foto2,
@@ -321,7 +342,8 @@ export default {
               timer: 2000,
               button: false,
             });
-            this.durasi = "";
+            this.dariJam = "";
+            this.sampaiJam = "";
             this.kegiatan = "";
             this.foto1 = "";
             this.foto2 = "";
@@ -419,9 +441,6 @@ export default {
       .get(API_URL + "guru/" + this.$route.params.id)
       .then((response) => {
         this.guruku = response.data;
-        if(this.guruku.jenis == 'tu'){
-          this.$router.push("/laporan2/"+this.guruku.id);
-        }
       })
       .catch();
   },

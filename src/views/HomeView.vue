@@ -45,6 +45,13 @@
             <label for="nama">Nama</label>
             <input type="text" class="form-control" v-model="nama" />
           </div>
+          <div class="form-group">
+            <label for="nama">Jenis Pegawai</label>
+            <select class="form-control" v-model="jenis">
+              <option value="guru">GURU</option>
+              <option value="tu">Tata Usaha</option>
+            </select>
+          </div>
           <button class="btn btn-success" v-on:click="mulaiRegistrasi">
             <b-icon-upload></b-icon-upload> Submit
           </button>
@@ -89,15 +96,8 @@ export default {
     return {
       nip: "",
       nama: "",
+      jenis: "",
       dataASN:[],
-      // chartData: [
-      //   ['ASN', 'Jumlah Laporan'],
-      //   ['Work', 19],
-      //   ['Eat', 2],
-      //   ['Commute', 2],
-      //   ['Watch TV', 2],
-      //   ['Sleep', 7],
-      // ],
       chartData: [
         ['ASN', 'Jumlah Laporan']
       ],
@@ -123,10 +123,11 @@ export default {
       });
     })
     .catch()
+    //coba local storage
   },
   methods: {
     mulaiRegistrasi() {
-      if (this.nip && this.nama) {
+      if (this.nip && this.nama && this.jenis) {
         //pengecekan data guru
         axios
           .post(API_URL+"gurucek", { nip: this.nip })
@@ -137,6 +138,7 @@ export default {
                 .post(API_URL+"guru", {
                   nama: this.nama,
                   nip: this.nip,
+                  jenis: this.jenis,
                 })
                 .then(() => {
                   swal("Terima Kasih", "Anda Sudah Didaftarkan", "success", {

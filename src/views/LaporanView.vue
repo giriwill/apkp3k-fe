@@ -176,6 +176,7 @@ export default {
         // console.log(response.data);
       })
       .catch((err) => console.log(err));
+    //coba local storage
   },
 };
 </script>
