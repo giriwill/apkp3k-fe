@@ -176,10 +176,10 @@
                   }}
                 </td>
                 <td align="center" width="80" :hidden="baris[index + 1]">
-                  {{ laporans.dari }} Menit
+                  {{ laporans.dari }} WIB
                 </td>
                 <td align="center" width="80" :hidden="baris[index + 1]">
-                  {{ laporans.sampai }} Menit
+                  {{ laporans.sampai }} WIB
                 </td>
                 <td align="left" width="300" :hidden="baris[index + 1]">
                   {{ laporans.kegiatan }}
