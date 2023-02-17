@@ -23,9 +23,13 @@
                 <label for="agreement" class="ml-2">
                   Saya Setuju NIP Saya Dicetak </label
                 ><br />
+                <input type="checkbox" v-model="printcover" name="printcover" />
+                <label for="printcover" class="ml-2">
+                  Cetak Cover</label>
+                <br/>     
                 <input type="checkbox" v-model="printttd" name="printttd" />
                 <label for="printttd" class="ml-2">
-                  Memakai Cover dan Tanda Tangan </label>                
+                  Cetak Tanda Tangan </label>            
               </li>
             </ul>
           </div>
@@ -107,30 +111,30 @@
               width="100%"
               cellpadding="5px"
             >
-              <tr :hidden="!printttd">
-                <td colspan="8" align="center" :hidden="!printttd">
+              <tr :hidden="!printcover">
+                <td colspan="8" align="center" :hidden="!printcover">
                   <strong
                     >LAPORAN KINERJA HARIAN P3K/NON ASN TENAGA PENDIDIK</strong
                   >
                 </td>
               </tr>
-              <tr :hidden="!printttd">
+              <tr :hidden="!printcover">
                 <td colspan="8" align="center">
                   <strong>{{ this.smk }}</strong>
                 </td>
               </tr>
-              <tr :hidden="!printttd">
+              <tr :hidden="!printcover">
                 <td colspan="8" align="center">
                   CABANG DINAS PENDIDIKAN WILAYAH XIII
                 </td>
               </tr>
-              <tr :hidden="!printttd">
+              <tr :hidden="!printcover">
                 <td colspan="8">NAMA : {{ this.nama }}</td>
               </tr>
-              <tr :hidden="!printttd">
+              <tr :hidden="!printcover">
                 <td colspan="8">BULAN : {{ namanamaBulan(this.bulan) }}</td>
               </tr>
-              <tr :hidden="!printttd">
+              <tr :hidden="!printcover">
                 <td align="center" width="10"><strong> No.</strong></td>
                 <td align="center" width="70"><strong> Hari</strong></td>
                 <td align="center" width="90"><strong> Tanggal</strong></td>
@@ -144,7 +148,7 @@
                 <td align="center" width="100"><strong> Paraf</strong></td>
               </tr>
               <tr
-                :hidden="!printttd"
+                :hidden="!printcover"
                 style="background-color: grey; color: white"
               >
                 <td align="center" width="10">1</td>
@@ -281,6 +285,7 @@ export default {
       tmt: "",
       agreement: false,
       printttd: false,
+      printcover: false,
       baris: [],
       kolhilang: false,
       dariNomor:"",
