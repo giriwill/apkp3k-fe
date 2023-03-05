@@ -20,6 +20,7 @@
           >
         </b-navbar-nav>
       </b-collapse>
+      Version 1.2
     </b-navbar>
   </div>
 </template>
